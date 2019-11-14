@@ -1,0 +1,40 @@
+{
+    "name": "ESPNexUpload", 
+    "version": "0.5.5", 
+    "keywords": [
+        "communication"
+    ], 
+    "description": "Upload UI file to Nextion displays using ESP's", 
+    "frameworks": [
+        "arduino"
+    ], 
+    "platforms": [
+        "espressif8266", 
+        "espressif32"
+    ], 
+    "authors": [
+        {
+            "email": "psoden@gmail.com", 
+            "url": null, 
+            "maintainer": true, 
+            "name": "Ville Vilpas"
+        }
+    ], 
+    "repository": {
+        "type": "git", 
+        "url": "https://github.com/Nredor/ESPNexUpload"
+    }, 
+    "homepage": null, 
+    "export": {
+        "include": null, 
+        "exclude": [
+            "extras", 
+            "docs", 
+            "tests", 
+            "test", 
+            "*.doxyfile", 
+            "*.pdf"
+        ]
+    }, 
+    "id": 2862
+}
