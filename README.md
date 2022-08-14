@@ -1,5 +1,7 @@
 # ESPNexUpload
-ESP8266 & ESP32 library for uploading .tft files to the Nextion display over serial. The ESP32 uses HardwareSerial and the ESP8266 uses SoftwareSerial. Pins are defined in the ESPNexUpload.cpp file.
+ESP8266 & ESP32 library for uploading .tft files to the Nextion display over serial. The ESP32 uses HardwareSerial and the ESP8266 uses SoftwareSerial.
+
+Project is made for the ESP-IDF Development Framework (Arduino independent) but is compatible with arduino-esp32 (The Arduino core for the ESP).
 
 ## IMPORTANT NOTES
 
@@ -17,7 +19,7 @@ This library expects a byte (buffer of Stream), filesize and serial baudrate as 
 #### Begin
 ```C++
   // initialize ESPNexUpload
-  ESPNexUpload nextion(115200);
+  ESPNexUpload nextion(D_UART_NUM,D_BAUDRATE,D_TX,D_RX);
   
   // prepare upload: setup serial connection, send update command and send the expected update size
   // returns a True or False.
@@ -32,7 +34,6 @@ This library expects a byte (buffer of Stream), filesize and serial baudrate as 
       nextion.upload(upload.buf, upload.bufSize);
   /* end buffer loop */
 ```
-The library example "[UploadServer](examples/UploadServer/UploadServer.ino#L100)" uses this approach.
 </br>
 
 #### When providing a stream
@@ -41,7 +42,6 @@ The library example "[UploadServer](examples/UploadServer/UploadServer.ino#L100)
   // returns a True or False.
   nextion.upload(stream)
 ```
-The library examples "[WifiClient](examples/WifiClient/WifiClient.ino#L128), [HttpClient](examples/HttpClient/HttpClient.ino#L123), [SPIFFSRead](examples/SPIFFSRead/SPIFFSRead.ino#L62) & [SDRead](examples/SDRead/SDRead.ino#L61)" use this approach.
 </br>
 
 #### End
@@ -53,6 +53,7 @@ The library examples "[WifiClient](examples/WifiClient/WifiClient.ino#L128), [Ht
 </br>
 
 ## Releases
+- v0.6.0 - ESP-IDF Compatible
 - v0.5.6 - Forgot to update library.properties version for Arduino Library manager, fixed here.
 - v0.5.5 - Bug fixes regarding baud rates and improvements for debug messages
 - v0.5.0 - Improved implementation of the nextion upload v1.1 protocol
